@@ -14,6 +14,10 @@ from data_model.Cinema import Cinema
 
 #app = Bottle()
 
+@route('/services')
+def services():
+    return "{getCinemas : \"/cinemas/{0}\", getMovieTimes : \"/cinema/movietimes/{0}/{1}/{2}\"}"
+
 @route('/hello')
 def hello():
     return "Hello World!"
