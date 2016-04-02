@@ -11,9 +11,9 @@ import datetime
 try:
     step = 1
     googleKinoReader = GoogleKinoReader()
-    
+
     '''
-    Insert Cinemas only
+    Insert Cinemas into the database
     '''
     if step == 0:
         cinema_info = googleKinoReader.executeInitialCinemaRetrieve()
@@ -22,7 +22,7 @@ try:
         now = datetime.datetime.today()
         for cinema in cinema_info:
             cinema._LastUpdate = now
-            sql_single = cinema.getSqlInsert("cinema") 
+            sql_single = cinema.getSqlInsert("cinema")
             sql.append(sql_single)
             #print(sql_single)
             #print(cinema)
@@ -35,9 +35,9 @@ try:
         movies = googleKinoReader.readCinemaMoviePage(place, source_id, date)
         for movie in movies:
             print(movie)
-        
-        
-    
+
+
+
     #print(res)
     print("Insert complete")
 except:
